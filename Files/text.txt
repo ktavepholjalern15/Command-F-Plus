@@ -1,0 +1,1 @@
+if the top row of the 2D array holds null, then check if the word matches the next, and if it doesn't, then add it to the 2 d array, and add one on the bottom.  if it matches the next one then 

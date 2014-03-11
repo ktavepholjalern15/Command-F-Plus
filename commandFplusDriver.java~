@@ -1,0 +1,54 @@
+//Makana Tavepholjalern
+
+
+import java.util.Scanner;
+//import java.util.ArrayList;
+//import java.io.File;
+//import java.io.IOException;
+import java.io.*;
+//import java.io.BufferedReader;
+//import java.io.FileReader;
+import java.util.*;
+
+
+public class commandFplusDriver
+{
+  public static void main(String[] args) throws IOException
+  {
+    /*FileReader fr = new FileReader("text.txt");
+    BufferedReader textReader = new BufferedReader(fr);
+    String text = new String();
+    while (textReader.readLine() != null)
+    {
+      text += textReader.readLine();
+    }
+    textReader.close();
+    System.out.println(text);*/
+    
+    
+    commandFplus wordCounter = new commandFplus();
+    String writing = "";
+    Scanner kb = new Scanner(System.in);
+    System.out.println("What is the name of your file?");
+    String fileName = "./Files/" + kb.nextLine();
+    Scanner x = new Scanner(new File(fileName));
+    while (x.hasNext())
+    {
+     writing += x.nextLine(); //next string
+    }
+    System.out.println(writing);//printing to the screen what is in the string
+
+    writing = wordCounter.strip(writing);
+    
+    System.out.println("AFTER STRIP" + writing);//printing the string after the punctuation has been stripped
+    
+    ArrayList<String> arrayOfWords= new ArrayList<String>();
+    arrayOfWords = wordCounter.toArray(writing);
+    arrayOfWords = wordCounter.selectionSort(arrayOfWords);//sort the alphabet list alphabetically
+    
+    System.out.println(arrayOfWords);
+    
+  }
+  
+  
+}
