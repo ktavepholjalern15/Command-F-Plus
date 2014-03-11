@@ -1,4 +1,6 @@
 //Makana Tavepholjalern
+//3/11/14
+//this is a program to find the (three) most common words in a piece of writing
 
 
 import java.util.Scanner;
@@ -33,25 +35,25 @@ public class commandFplusDriver
     System.out.println("What is the name of your file?");
     String fileName = "./Files/" + kb.nextLine();
     
-    int numWordsWanted = 0;
+    /*int numWordsWanted = 0;
     while(numWordsWanted < 1)
     {
       System.out.println("How many words would you like?(ie 3 will give you the 3 most commonly used words in the paper)");
       numWordsWanted = kb.nextInt();
-    }
+    }*/
     
-    System.out.println("Please enter the words you would not like to include in the search separated by spaces, if none, press enter");
+    /*System.out.println("Please enter the words you would not like to include in the search separated by spaces, if none, press enter");
     String str = kb.nextLine();//the string of words to not include
     ArrayList <String> arrayWordsNotInc = new ArrayList<String>();
     String[] arrayOfBadWords = str.split("");
-    arrayWordsNotInc = wordCounter.toArrayList(arrayOfBadWords);//arraylist of words not to include
+    arrayWordsNotInc = wordCounter.toArrayList(arrayOfBadWords);//arraylist of words not to include*/
       
     Scanner x = new Scanner(new File(fileName));//a new scanner to read in from a file
     while (x.hasNext())
     {
       writing += x.nextLine(); //next string
     }
-    System.out.println(writing);//printing to the screen what is in the string
+    //System.out.println(writing);//printing to the screen what is in the string
     
     writing = wordCounter.strip(writing);//taking out the punctuation from the string, 
     //and no capital letters
@@ -63,8 +65,12 @@ public class commandFplusDriver
     
     System.out.println(arrayOfWords);
     
-    //int[][] mostCommonWords = wordCounter.mostCommonWords(arrayOfWords, numWordsWanted, arrayWordsNotInc);
+    String[][] mostCommonWords = wordCounter.mostCommonWords(arrayOfWords);// took out , int numWordsWanted, ArrayList wordsNotInclude
     //rows by columns
+    System.out.println(mostCommonWords[0][0] + ", was used " + Integer.parseInt(mostCommonWords[1][0]));
+    System.out.println(mostCommonWords[0][1] + ", was used " + Integer.parseInt(mostCommonWords[1][1]));
+    System.out.println(mostCommonWords[0][2] + ", was used " + Integer.parseInt(mostCommonWords[1][2]));
+    
     
     /*for(int i; i < numWordsWanted; i++)
     {

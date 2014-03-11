@@ -1,4 +1,6 @@
-
+//Makana Tavepholjalern
+//3/11/14
+//this is a program to find the (three) most common words in a piece of writing
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 
 public class commandFplus
 {
- 
+  
   public String strip(String str)//should return the modified string with only single spaces and lower cased letters, and no numbers
   {
     str = str.toLowerCase();
@@ -27,23 +29,23 @@ public class commandFplus
     }
     
     /*for(int i = 0; i < str.length() - 2; i++)
-    {
-      if(alphaChecked.substring(i,i+2).equals("  "))//if the two characters are spaces
-      {
-        
-        alphaChecked = alphaChecked.substring(0,i) + alphaChecked.substring(i+1);//delete a space
-        System.out.println(alphaChecked);
-        i -= 1;//continue from last position   
-      }
-      else {}
-    }*/
+     {
+     if(alphaChecked.substring(i,i+2).equals("  "))//if the two characters are spaces
+     {
+     
+     alphaChecked = alphaChecked.substring(0,i) + alphaChecked.substring(i+1);//delete a space
+     System.out.println(alphaChecked);
+     i -= 1;//continue from last position   
+     }
+     else {}
+     }*/
     
     
     /*if(!(str.substring(str.length()-1).equals(" ")))// if the last character is a letter,
-      str += " ";//add on a space
-    
-    if(str.substring(0,1).equals(" "))// if the first character is a space, then delete it
-      str = str.substring(1,str.length());*/
+     str += " ";//add on a space
+     
+     if(str.substring(0,1).equals(" "))// if the first character is a space, then delete it
+     str = str.substring(1,str.length());*/
     
     return alphaChecked;
   }
@@ -63,19 +65,19 @@ public class commandFplus
     
     
     /*String intermediate = "";
-    ArrayList<String> individualWords= new ArrayList<String>();
-    
-    while(str.length() > 0 && str.indexOf(" ") != -1)
-    {
-      int i = str.indexOf(" ");
-      individualWords.add(str.substring(0,i));
-      intermediate += str.substring(i+1);
-      str = intermediate;
-      intermediate = "";
-    }
-    
-    //when it no longer has
-    return individualWords;*/
+     ArrayList<String> individualWords= new ArrayList<String>();
+     
+     while(str.length() > 0 && str.indexOf(" ") != -1)
+     {
+     int i = str.indexOf(" ");
+     individualWords.add(str.substring(0,i));
+     intermediate += str.substring(i+1);
+     str = intermediate;
+     intermediate = "";
+     }
+     
+     //when it no longer has
+     return individualWords;*/
   }
   
   
@@ -104,42 +106,75 @@ public class commandFplus
     return list;
   }
   
-  /*public int[][] mostCommonWords(ArrayList <String> list, int numWordsWanted, ArrayList wordsNotInclude)
+  public String[][] mostCommonWords(ArrayList<String> list)//took out, int numWordsWanted, ArrayList wordsNotInclude
   {
     
-    int maxCount;
+    String output[][] = new String[2][3];
+    int maxCount = 0;// the occurrances of the most common word so far
+    int maxCount2 = 0;
+    int maxCount3 = 0;
     int count = 0;
-    String maxWord = "";
+    String maxWord = "";// the most common word so far
+    String maxWord2 = "";
+    String maxWord3 = "";
     String current = "";
     String previous = "";
     
     for(int i = 0; i < list.size(); i++)
     {
-      if(i == 1)
+      if(i == 0)
       {
-        current = list(i);
-        maxWord = list(i);
+        current = list.get(i);
+        maxWord = list.get(i);
         maxCount++;
         count++;    
       }
       else
       {
-        if(count > maxCount)
+        previous = current;
+        current = list.get(i);//add in the new word
+        if(current.equals(previous))
         {
-         maxCount = count; 
-         maxWord = current;
+          count++;
         }
         else
-        count = 1;
-        previous = current;
-        current = list(i);
-       
+          count = 1;// adjust the current count accordingly
+        
+        if(count > maxCount3)
+        {
+          maxCount3 = count;
+          maxWord3 = current;
+          if(count > maxCount2)
+          {
+            int holdInt = maxCount2;
+            maxCount2 = maxCount3;
+            maxCount3 = holdInt;
+            String holdString = maxWord2;
+            maxWord2 = maxWord3;
+            maxWord3 = holdString;
+            if(count > maxCount3)
+            {
+              int holdInt2 = maxCount;
+              maxCount = maxCount2;
+              maxCount2 = holdInt;
+              String holdString2 = maxWord;
+              maxWord = maxWord2;
+              maxWord2 = holdString;
+            }
+          }
+        }
+        
       }
-      
+      output[0][0] = maxWord;
+      output[1][0] = Integer.toString(maxCount);
+      output[0][1] = maxWord2;
+      output[1][1] = Integer.toString(maxCount2);
+      output[0][2] = maxWord3;
+      output[1][2] = Integer.toString(maxCount3);
     }
+    return output;
     
-    
-    String currentWord = "";
+    /*String currentWord = "";
     int numTimes = 0;
     int[][] mostCommonWords = new int[2][numWordsWanted];// 2D array-- two rows, and colums for the number of words
     for(int i = 0; i < list.size(); i++)
@@ -151,6 +186,6 @@ public class commandFplus
       }
       else{}
     }
-    return mostCommonWords;
-  }*/
+    return mostCommonWords;*/
+  }
 }
