@@ -1,7 +1,7 @@
 //Makana Tavepholjalern
 //3/11/14
 //this is a program to find the (three) most common words in a piece of writing
-
+//when you compile, enter text.txt exactly
 
 import java.util.Scanner;
 //import java.util.ArrayList;
@@ -17,6 +17,9 @@ public class commandFplusDriver
 {
   public static void main(String[] args) throws IOException
   {
+    //Brianna helped me to write a method to read in text, but it used a buffered reader which was kind of confusing
+    //It read in the text without any spaces, so I had no way of separating the individual words, so I had
+    //to look for another solution
     /*FileReader fr = new FileReader("text.txt");
      BufferedReader textReader = new BufferedReader(fr);
      String text = new String();
@@ -49,6 +52,7 @@ public class commandFplusDriver
     arrayWordsNotInc = wordCounter.toArrayList(arrayOfBadWords);//arraylist of words not to include*/
       
     Scanner x = new Scanner(new File(fileName));//a new scanner to read in from a file
+    //Amanda helped me to write the code to read in text from a file
     while (x.hasNext())
     {
       writing += x.nextLine(); //next string

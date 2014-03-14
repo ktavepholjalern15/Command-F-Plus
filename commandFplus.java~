@@ -1,4 +1,6 @@
-
+//Makana Tavepholjalern
+//3/11/14
+//this is a program to find the (three) most common words in a piece of writing
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -86,6 +88,7 @@ public class commandFplus
   //}
   
   public ArrayList<String> selectionSort(ArrayList <String> list){
+    //a lot of this code came from the textbook on different ways to sort an array/arraylist
     int min; 
     String temp;
     

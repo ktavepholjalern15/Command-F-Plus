@@ -1,6 +1,7 @@
 //Makana Tavepholjalern
 //3/11/14
 //this is a program to find the (three) most common words in a piece of writing
+//when you compile, enter text.txt exactly
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -88,6 +89,7 @@ public class commandFplus
   //}
   
   public ArrayList<String> selectionSort(ArrayList <String> list){
+    //a lot of this code came from the textbook on different ways to sort an array/arraylist
     int min; 
     String temp;
     
@@ -140,7 +142,7 @@ public class commandFplus
         else
           count = 1;// adjust the current count accordingly
         
-        if(count > maxCount3)
+        if(count > maxCount3)//placing the current word in it's proper place if it is in the top three
         {
           maxCount3 = count;
           maxWord3 = current;
